@@ -1,4 +1,4 @@
-# 🚀 Jubair Islam Daief | Full-Stack Web Developer Portfolio 2026
+# 🚀 Jubair Islam Daief | Full-Stack Web Developer Portfolio  2026
 
 Welcome to the official repository for my professional portfolio. This project showcases a cutting-edge **2026 Bento-style design** built for speed, aesthetics, and a premium user experience.
 
