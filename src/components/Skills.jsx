@@ -9,7 +9,8 @@ const Skills = ({ theme }) => {
       icon: <Layers size={24} />,
       skills: [
         { name: 'PHP / Laravel', level: 95 },
-        { name: 'JavaScript / React', level: 90 },
+        { name: 'JavaScript / React', level: 95 },
+        { name: 'Node.js', level: 90 },
         { name: 'Python', level: 75 }
       ]
     },
@@ -19,7 +20,8 @@ const Skills = ({ theme }) => {
       skills: [
         { name: 'Vue.js / Next.js', level: 90 },
         { name: 'HTML5 / CSS3', level: 95 },
-        { name: 'MySQL', level: 90 }
+        { name: 'MySQL', level: 90 },
+        { name: 'MongoDB', level: 90 }
       ]
     },
     {

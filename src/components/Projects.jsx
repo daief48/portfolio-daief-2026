@@ -6,8 +6,8 @@ const Projects = ({ theme }) => {
     const projects = [
         {
             title: 'DashWheelz',
-            category: 'Automotive Marketplace',
-            desc: 'A pre-owned car marketplace with rent-to-own options. Implemented online booking, OTP verification, and flexible payment plans.',
+            category: 'Automotive FinTech',
+            desc: 'A comprehensive automotive marketplace engineered with rent-to-own capabilities. Developed secure online booking infrastructure, multi-channel OTP verification, and dynamic financial payment synchronization.',
             url: 'https://dashwheelz.com',
             tech: ['Laravel', 'MySQL', 'OTP Sync', 'Tailwind'],
             image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
@@ -15,8 +15,8 @@ const Projects = ({ theme }) => {
         },
         {
             title: 'AffilSpark',
-            category: 'Affiliate Marketing',
-            desc: 'An affiliate marketing platform connecting vendors and affiliates. Features real-time tracking, automated split payments, and campaign management.',
+            category: 'AdTech Platform',
+            desc: 'High-performance affiliate marketing hub designed for enterprise-level vendor-affiliate synergy. Features real-time conversion tracking, automated revenue split logic, and comprehensive campaign management analytics.',
             url: 'https://affilspark.com',
             tech: ['Laravel', 'React', 'Redis', 'Analytics'],
             image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
@@ -24,8 +24,8 @@ const Projects = ({ theme }) => {
         },
         {
             title: 'Sakura Power',
-            category: 'eCommerce Platform',
-            desc: 'A full-stack eCommerce platform with a scalable Laravel backend, React admin panel, and Next.js frontend.',
+            category: 'Enterprise eCommerce',
+            desc: 'Sophisticated multi-tier commerce architecture built for high-velocity retail. Architected a scalable Laravel API infrastructure integrated with a headless Next.js storefront and a robust React management suite.',
             url: 'https://sakurapower.com',
             tech: ['Laravel', 'React.js', 'Next.js', 'Tailwind'],
             image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
@@ -33,8 +33,8 @@ const Projects = ({ theme }) => {
         },
         {
             title: 'Dolbear',
-            category: 'eCommerce Platform',
-            desc: 'A full-stack eCommerce platform for tech lifestyle products. Features category-based organization and performance optimization.',
+            category: 'Digital Retail',
+            desc: 'Premium tech-lifestyle commerce platform engineered for maximum performance and UX. Implemented specialized catalog categorization and optimized database indexing for sub-second catalog navigation.',
             url: 'https://dolbear.com.bd',
             tech: ['Laravel', 'React.js', 'Next.js', 'MySQL'],
             image: "https://images.unsplash.com/photo-1491933382434-500287f9b54b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
@@ -42,8 +42,8 @@ const Projects = ({ theme }) => {
         },
         {
             title: 'TaskFino',
-            category: 'Enterprise ERP',
-            desc: 'All-in-one office management software combining HR, Payroll, Accounting, CRM, and Task management.',
+            category: 'Enterprise ERP Suite',
+            desc: 'Comprehensive ERP solution facilitating seamless organizational digital transformation. Deployed integrated modules for HR/Payroll automation, CRM analytics, and cross-departmental task synchronization.',
             url: 'https://taskfino.com',
             tech: ['Laravel', 'Vue.js', 'HRMS', 'ERP'],
             image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",

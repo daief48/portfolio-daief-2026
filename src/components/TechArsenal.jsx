@@ -20,6 +20,7 @@ const TechArsenal = ({ theme }) => {
         { name: 'PHP', icon: <Globe size={24} /> },
         { name: 'JavaScript', icon: <FileJson size={24} /> },
         { name: 'Python', icon: <Terminal size={24} /> },
+        { name: 'Node.js', icon: <Cpu size={24} /> },
         { name: 'Laravel', icon: <Box size={24} /> },
         { name: 'Vue.js', icon: <Zap size={24} /> },
         { name: 'React.js', icon: <Code2 size={24} /> },
@@ -28,6 +29,7 @@ const TechArsenal = ({ theme }) => {
         { name: 'HTML', icon: <div style={{ fontSize: '1.2rem', fontWeight: 900 }}>H</div> },
         { name: 'CSS', icon: <div style={{ fontSize: '1.2rem', fontWeight: 900 }}>C</div> },
         { name: 'MySQL', icon: <Database size={24} /> },
+        { name: 'MongoDB', icon: <Database size={24} /> },
         { name: 'Git', icon: <ShieldCheck size={24} /> },
         { name: 'SEO', icon: <Zap size={24} /> }
     ];
