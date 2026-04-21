@@ -85,83 +85,100 @@ const Projects = ({ theme }) => {
     };
 
     return (
-        <section className="projects-section container" id="projects">
-            <div className="section-intro text-center">
+        <section id="projects" className="projects-section">
+            <div className="container">
+                <div className="section-intro text-center">
+                    <motion.span
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="section-category"
+                    >
+                        Portfolio
+                    </motion.span>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="section-title"
+                    >
+                        Featured <span className="accent-text">Projects</span>
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="section-subtitle"
+                    >
+                        A selection of high-end digital experiences crafted with precision and purpose.
+                    </motion.p>
+                </div>
+
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="projects-grid"
                 >
-                    <h2 className="section-title">My Projects</h2>
-                    <p className="section-subtitle serif">
-                        Real-world applications I've built and deployed.
-                    </p>
+                    {projects.map((project, index) => {
+                        const isExpanded = expandedIndex === index;
+                        const shortDesc = project.desc.length > 120 ? project.desc.substring(0, 120) + '...' : project.desc;
+
+                        return (
+                            <motion.div
+                                key={project.title}
+                                variants={cardVariants}
+                                className={`project-liquid-card ${isExpanded ? 'is-expanded' : ''}`}
+                            >
+                                <div className="liquid-glass-fx"></div>
+
+                                <div className="liquid-visual-area">
+                                    <img src={project.image} alt={project.title} className="liquid-img" />
+                                    <div className="liquid-overlay">
+                                        <a href={project.url} target="_blank" rel="noopener noreferrer" className="liquid-action-pill">
+                                            <span>Experience Live</span>
+                                            <ArrowUpRight size={16} />
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div className="liquid-content-area">
+                                    <div className="liquid-main-info">
+                                        <div className="liquid-header">
+                                            <span className="liquid-category-tag">{project.category}</span>
+                                            <h3 className="liquid-title">{project.title}</h3>
+                                        </div>
+                                        <div className="liquid-desc-wrap">
+                                            <p className="liquid-summary">
+                                                {isExpanded ? project.desc : shortDesc}
+                                            </p>
+                                            {project.desc.length > 120 && (
+                                                <button
+                                                    className="read-more-btn"
+                                                    onClick={() => setExpandedIndex(isExpanded ? null : index)}
+                                                >
+                                                    {isExpanded ? 'Read Less' : 'Read More'}
+                                                </button>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="liquid-tech-sidebar">
+                                        <div className="tech-stack-label">Stack</div>
+                                        <div className="liquid-tech-grid">
+                                            {project.tech.map(t => (
+                                                <span key={t} className="liquid-tech-item">{t}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </motion.div>
             </div>
-
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                className="projects-grid"
-            >
-                {projects.map((project, index) => {
-                    const isExpanded = expandedIndex === index;
-                    const shortDesc = project.desc.length > 120 ? project.desc.substring(0, 120) + '...' : project.desc;
-
-                    return (
-                        <motion.div
-                            key={project.title}
-                            variants={cardVariants}
-                            className={`project-liquid-card ${isExpanded ? 'is-expanded' : ''}`}
-                        >
-                            <div className="liquid-glass-fx"></div>
-                            
-                            <div className="liquid-visual-area">
-                                <img src={project.image} alt={project.title} className="liquid-img" />
-                                <div className="liquid-overlay">
-                                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="liquid-action-pill">
-                                        <span>Experience Live</span>
-                                        <ArrowUpRight size={16} />
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div className="liquid-content-area">
-                                <div className="liquid-main-info">
-                                    <div className="liquid-header">
-                                        <span className="liquid-category-tag">{project.category}</span>
-                                        <h3 className="liquid-title">{project.title}</h3>
-                                    </div>
-                                    <div className="liquid-desc-wrap">
-                                        <p className="liquid-summary">
-                                            {isExpanded ? project.desc : shortDesc}
-                                        </p>
-                                        {project.desc.length > 120 && (
-                                            <button 
-                                                className="read-more-btn"
-                                                onClick={() => setExpandedIndex(isExpanded ? null : index)}
-                                            >
-                                                {isExpanded ? 'Read Less' : 'Read More'}
-                                            </button>
-                                        )}
-                                    </div>
-                                </div>
-
-                                <div className="liquid-tech-sidebar">
-                                    <div className="tech-stack-label">Stack</div>
-                                    <div className="liquid-tech-grid">
-                                        {project.tech.map(t => (
-                                            <span key={t} className="liquid-tech-item">{t}</span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    );
-                })}
-            </motion.div>
         </section>
     );
 };
