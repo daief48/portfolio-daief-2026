@@ -1,9 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Zap, ShieldCheck, Code2, Globe } from 'lucide-react';
+import { ArrowUpRight, Zap, ShieldCheck, Code2, Globe, BookOpen } from 'lucide-react';
 
 const Projects = ({ theme }) => {
     const projects = [
+        {
+            title: 'Quran Lens',
+            category: 'Sacred EdTech',
+            desc: 'A high-end, spiritually immersive web application designed for modern reflection. Features cinematic aesthetics, Mashrabiya-inspired design, and sacred typography for a focused reading experience.',
+            url: 'https://gregarious-gumption-5095c8.netlify.app/',
+            tech: ['Next.js 15', 'Node.js', 'MongoDB', 'Framer Motion'],
+            image: '/projects/quran-lens.png',
+            icon: <BookOpen size={20} />
+        },
         {
             title: 'DashWheelz',
             category: 'Automotive FinTech',
