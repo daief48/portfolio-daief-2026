@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Zap, ShieldCheck, Code2, Globe, BookOpen } from 'lucide-react';
 
 const Projects = ({ theme }) => {
+    const [expandedIndex, setExpandedIndex] = useState(null);
+
     const projects = [
         {
             title: 'Quran Lens',
             category: 'Sacred EdTech',
-            desc: 'A high-end, spiritually immersive web application designed for modern reflection. Features cinematic aesthetics, Mashrabiya-inspired design, and sacred typography for a focused reading experience.',
+            desc: 'A spiritually immersive Quranic platform featuring a cinematic Surah explorer and dynamic multi-lingual search engine. Optimized with Next.js SSG for sub-second transitions and integrated with a custom Express/MongoDB backend for synchronized user preferences and bookmarks.',
             url: 'https://gregarious-gumption-5095c8.netlify.app/',
             tech: ['Next.js 15', 'Node.js', 'MongoDB', 'Framer Motion'],
             image: '/projects/quran-lens.png',
@@ -104,47 +106,61 @@ const Projects = ({ theme }) => {
                 viewport={{ once: true, margin: "-100px" }}
                 className="projects-grid"
             >
-                {projects.map((project, index) => (
-                    <motion.div
-                        key={project.title}
-                        variants={cardVariants}
-                        className="project-card-modern"
-                    >
-                        <div className="project-image-container">
-                            <img src={project.image} alt={project.title} className="project-image-modern" />
-                            <div className="project-overlay-modern"></div>
-                        </div>
+                {projects.map((project, index) => {
+                    const isExpanded = expandedIndex === index;
+                    const shortDesc = project.desc.length > 120 ? project.desc.substring(0, 120) + '...' : project.desc;
 
-                        <div className="project-content-modern">
-                            <div className="project-header-modern">
-                                <div>
-                                    <span className="project-category-modern">{project.category}</span>
-                                    <h3 className="project-title-modern">{project.title}</h3>
-                                </div>
-                                <div className="project-icon-box">
-                                    {project.icon}
+                    return (
+                        <motion.div
+                            key={project.title}
+                            variants={cardVariants}
+                            className={`project-liquid-card ${isExpanded ? 'is-expanded' : ''}`}
+                        >
+                            <div className="liquid-glass-fx"></div>
+                            
+                            <div className="liquid-visual-area">
+                                <img src={project.image} alt={project.title} className="liquid-img" />
+                                <div className="liquid-overlay">
+                                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="liquid-action-pill">
+                                        <span>Experience Live</span>
+                                        <ArrowUpRight size={16} />
+                                    </a>
                                 </div>
                             </div>
 
-                            <p className="project-desc-modern">{project.desc}</p>
+                            <div className="liquid-content-area">
+                                <div className="liquid-main-info">
+                                    <div className="liquid-header">
+                                        <span className="liquid-category-tag">{project.category}</span>
+                                        <h3 className="liquid-title">{project.title}</h3>
+                                    </div>
+                                    <div className="liquid-desc-wrap">
+                                        <p className="liquid-summary">
+                                            {isExpanded ? project.desc : shortDesc}
+                                        </p>
+                                        {project.desc.length > 120 && (
+                                            <button 
+                                                className="read-more-btn"
+                                                onClick={() => setExpandedIndex(isExpanded ? null : index)}
+                                            >
+                                                {isExpanded ? 'Read Less' : 'Read More'}
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
 
-                            <div className="project-tech-modern">
-                                {project.tech.map(t => (
-                                    <span key={t} className="tech-tag-modern">{t}</span>
-                                ))}
+                                <div className="liquid-tech-sidebar">
+                                    <div className="tech-stack-label">Stack</div>
+                                    <div className="liquid-tech-grid">
+                                        {project.tech.map(t => (
+                                            <span key={t} className="liquid-tech-item">{t}</span>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
-
-                            <a
-                                href={project.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="project-link-modern"
-                            >
-                                View Project <ArrowUpRight size={18} />
-                            </a>
-                        </div>
-                    </motion.div>
-                ))}
+                        </motion.div>
+                    );
+                })}
             </motion.div>
         </section>
     );
